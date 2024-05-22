@@ -11,7 +11,8 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o yoinker ./cmd/main.go
 
-FROM alpine:latest
+# FROM alpine:latest
+FROM python:3.12.3-alpine3.19
 
 RUN apk add --no-cache wget ca-certificates tar xz
 
