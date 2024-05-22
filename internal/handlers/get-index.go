@@ -14,13 +14,9 @@ func NewIndexHandler() *IndexHandler {
 }
 
 func (h *IndexHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../internal/templates/index.html"))
-	films := map[string][]models.Film{
-		"Films": {
-			{Title: "Pulp Fiction", Director: "Quentin Tarantino"},
-			{Title: "Inglourious Basterds", Director: "Quentin Tarantino"},
-			{Title: "Kill Bill", Director: "Quentin Tarantino"},
-		},
+	tmpl := template.Must(template.ParseFiles("./internal/templates/index.html"))
+	films := map[string][]models.DownloadResponse{
+		"DownloadResponses": {},
 	}
 	tmpl.Execute(w, films)
 }

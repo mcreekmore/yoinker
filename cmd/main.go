@@ -7,11 +7,6 @@ import (
 	"github.com/mcreekmore/yoinker/internal/handlers"
 )
 
-type Film struct {
-	Title    string
-	Director string
-}
-
 func main() {
 	mux := http.NewServeMux()
 

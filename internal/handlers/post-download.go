@@ -14,9 +14,8 @@ func NewDownloadHandler() *DownloadHandler {
 }
 
 func (h *DownloadHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-	title := req.PostFormValue("title")
-	director := req.PostFormValue("director")
+	url := req.PostFormValue("url")
 
-	tmpl := template.Must(template.ParseFiles("../internal/templates/index.html"))
-	tmpl.ExecuteTemplate(w, "film-list-element", models.Film{Title: title, Director: director})
+	tmpl := template.Must(template.ParseFiles("./internal/templates/index.html"))
+	tmpl.ExecuteTemplate(w, "download-list", models.DownloadResponse{Url: url})
 }
